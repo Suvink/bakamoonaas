@@ -1,0 +1,163 @@
+<!--
+* Copyright (c) 2025 Suvin Kodituwakku
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bakamoonaas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bakamoonaas - A browser extension for managing downloads with scheduling and pause/resume functionality.">
+    <meta name="author" content="Suvink Kodituwakku">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🦉 Bakamoonaas <sup class="superscript">v0.10-beta</sup></h1>
+            <a href="https://buymeacoffee.com/suvink" target="_blank">
+                <img class="sponsor-banner" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy me a coffee">
+            </a>
+        </div>
+        
+        <section id="scheduled-section">
+            <div class="section-header">
+                <span class="icon"><i class="fas fa-calendar"></i></span>
+                <span>SCHEDULED</span>
+            </div>
+            <div id="scheduled-container">
+                <!-- Scheduled downloads will be dynamically listed here -->
+            </div>
+        </section>
+        
+        <section id="download-section">
+            <div class="section-header">
+                <span class="icon"><i class="fas fa-pause"></i></span>
+                <span>PAUSED DOWNLOADS</span>
+            </div>
+            <div id="downloads-container">
+                <!-- Paused downloads will be dynamically listed here -->
+            </div>
+        </section>
+        
+        <section id="completed-section">
+            <div class="section-header">
+                <span class="icon"><i class="fas fa-check"></i></span>
+                <span>COMPLETED</span>
+            </div>
+            <div id="completed-container">
+                <!-- Completed downloads will be dynamically listed here -->
+            </div>
+        </section>
+
+        <section id="footer-section">
+            <div class="footer">
+                <p class="footer-text">Made with ♥️ by <a href="https://suvin.me" target="_blank">Suvink</a></p>
+            </div>
+        </section>
+
+        <!-- Template for paused downloads -->
+        <template id="download-template">
+            <div class="card">
+                <p class="download-name"></p>
+                <button class="btn btn-ghost schedule-toggle">
+                    <span class="icon"><i class="fas fa-clock"></i></span>
+                    <span>Schedule</span>
+                </button>
+                
+                <div class="datetime-inputs is-hidden">
+                    <div class="input-group">
+                        <label>Start Time</label>
+                        <input type="datetime-local" class="start-time">
+                    </div>
+                    <div class="input-group">
+                        <label>End Time</label>
+                        <input type="datetime-local" class="end-time">
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-ghost cancel-schedule">Cancel</button>
+                        <button class="btn btn-primary save-schedule">
+                            <span class="icon"><i class="fas fa-save"></i></span>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Template for scheduled downloads -->
+        <template id="scheduled-template">
+            <div class="card">
+                <p class="download-name"></p>
+                <div class="download-status"></div>
+                
+                <div class="progress-container is-hidden">
+                    <div class="progress-bar-background">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="progress-text"></div>
+                </div>
+                
+                <div class="schedule-info">
+                    <span class="icon"><i class="fas fa-play"></i></span>
+                    <span class="start-time-display"></span>
+                    <span class="icon" style="margin-left: 8px;"><i class="fas fa-pause"></i></span>
+                    <span class="end-time-display"></span>
+                    <button class="btn btn-icon btn-ghost edit-schedule" style="float: right;">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+                
+                <div class="datetime-inputs is-hidden">
+                    <div class="input-group">
+                        <label>Start Time</label>
+                        <input type="datetime-local" class="start-time">
+                    </div>
+                    <div class="input-group">
+                        <label>End Time</label>
+                        <input type="datetime-local" class="end-time">
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-ghost cancel-edit">Cancel</button>
+                        <button class="btn btn-primary save-schedule">
+                            <span class="icon"><i class="fas fa-save"></i></span>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Template for completed downloads -->
+        <template id="completed-template">
+            <div class="card completed">
+                <p class="download-name"></p>
+                <div class="schedule-info">
+                    Downloaded successfully
+                </div>
+            </div>
+        </template>
+
+        <!-- Template for empty messages -->
+        <template id="empty-message-template">
+            <div class="empty-message"></div>
+        </template>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

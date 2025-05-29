@@ -1,0 +1,299 @@
+/*
+ * Copyright (c) 2025 Suvin Kodituwakku
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+:root {
+    --bg-main: #13151a;
+    --bg-card: #1e2028;
+    --bg-hover: #282b36;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --accent-blue: #3b82f6;
+    --accent-green: #22c55e;
+    --accent-orange: #f59e0b;
+    --border-radius: 12px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    width: 380px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    padding: var(--spacing-md);
+}
+
+.container {
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.superscript {
+    font-size: 10px;
+    color: var(--accent-green);
+    vertical-align: super;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.header-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.sponsor-banner{
+    max-width: 120px;
+}
+
+.section-header {
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.section-header .icon {
+    margin-right: var(--spacing-sm);
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    transition: background-color 0.2s;
+}
+
+.card:hover {
+    background-color: var(--bg-hover);
+}
+
+.download-name {
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.schedule-info {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.download-status {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+}
+
+.download-status i {
+    margin-right: 4px;
+}
+
+.download-status.downloading {
+    color: var(--accent-green);
+}
+
+.download-status.scheduled {
+    color: var(--accent-blue);
+}
+
+.download-status.waiting {
+    color: var(--accent-orange);
+}
+
+.progress-container {
+    margin-bottom: var(--spacing-sm);
+}
+
+.progress-bar-background {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-green), #16a34a);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.progress-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.btn .icon {
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+}
+
+.btn-success {
+    background-color: var(--accent-green);
+}
+
+.btn-success:hover {
+    background-color: #16a34a;
+}
+
+.btn-ghost {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 6px;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.empty-message {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: var(--spacing-lg);
+    font-size: 14px;
+}
+
+.datetime-inputs {
+    margin-top: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+}
+
+.input-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.input-group input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.completed {
+    position: relative;
+}
+
+.completed::after {
+    content: "✓";
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    color: var(--accent-green);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.footer{
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-text{
+    font-size: 12px;
+    color: var(--text-secondary);
+    vertical-align: super;
+}
+
+.footer-text a {
+    color: var(--accent-green);
+    text-decoration: none;
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Bakamoonaas",
+    "description": "A browser extension for scheduling downloads",
+    "author": "Suvin Kodituwakku",
+    "homepage_url": "https://suvin.me",
+    "version": "0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "src/popup/popup.html",
+        "default_icon": {
+            "16": "src/assets/icons/bakamoona.png",
+            "48": "src/assets/icons/bakamoona.png",
+            "128": "src/assets/icons/bakamoona.png"
+        }
+    },
+    "icons": {
+        "16": "src/assets/icons/bakamoona.png",
+        "48": "src/assets/icons/bakamoona.png",
+        "128": "src/assets/icons/bakamoona.png"
+    },
+    "permissions": ["downloads", "notifications", "alarms", "storage"],
+    "background": {
+        "service_worker": "src/background/service-worker.js",
+        "type": "module"
+    }
+}

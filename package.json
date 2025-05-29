@@ -1,0 +1,39 @@
+{
+  "name": "bakamoonaas",
+  "version": "1.0.0",
+  "description": "A browser extension for scheduling downloads with smart time management",
+  "main": "src/background/service-worker.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "package": "node scripts/package.js",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write src/**/*.{js,css,html}",
+    "dev": "echo 'Load the extension in chrome://extensions/ with Developer mode enabled'",
+    "clean": "rm -rf dist/ *.zip"
+  },
+  "keywords": [
+    "browser-extension",
+    "download-manager",
+    "scheduler",
+    "chrome-extension",
+    "productivity"
+  ],
+  "author": "Suvin Kodituwakku",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suvink/bakamoonaas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suvink/bakamoonaas/issues"
+  },
+  "homepage": "https://github.com/suvink/bakamoonaas#readme",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 88",
+    "Edge >= 88"
+  ]
+}

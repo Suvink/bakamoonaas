@@ -1,3 +1,6 @@
 
 # Ignore the build artifacts
 dist/
+
+# Ignore MacOS system files
+.DS_Store
